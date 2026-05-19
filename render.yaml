@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cle-discipleship-pathway
+    env: node
+    buildCommand: cd client && npm install && npx vite build && cd ../server && npm install
+    startCommand: cd server && node src/index.js
+    envVars:
+      - key: PORT
+        value: "4000"
+      - key: JWT_SECRET
+        generateValue: true
